@@ -1,0 +1,10 @@
+- name: Provision VMware VM
+  hosts: localhost
+  tasks:
+    - name: Create VM
+      community.vmware.vmware_guest:
+        hostname: "{{ vcenterHost }}"
+        datacenter: "Datacenter"
+        name: "Ansible_VM"
+        state: poweredon
+        guest_id: "rhel7_64Guest"

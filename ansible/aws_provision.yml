@@ -1,0 +1,10 @@
+- name: Provision AWS EC2
+  hosts: localhost
+  tasks:
+    - name: Create EC2 instance
+      amazon.aws.ec2_instance:
+        region: "us-east-1"
+        instance_type: "{{ instanceType }}"
+        image_id: "{{ ami }}"
+        wait: yes
+      register: ec2_info
